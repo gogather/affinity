@@ -34,7 +34,7 @@ func SetAffinity(cpuID int) (uint64, error) {
 	runtime.LockOSThread()
 	ret := C.lock_thread(C.int(cpuID))
 	tid := uint64(C.ulong(C.current_thread_id()))
-	if tid > 0 {
+	if ret > 0 {
 		return 0, fmt.Errorf("set cpu core affinity failed with return code %d", ret)
 	}
 	return tid, nil
