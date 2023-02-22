@@ -1,6 +1,7 @@
 package affinity
 
 /*
+#define _GNU_SOURCE
 #include <sched.h>
 #include <pthread.h>
 
